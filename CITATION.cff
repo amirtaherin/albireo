@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use Albireo, please cite the SEC 2026 paper below."
+title: "Albireo: Adaptive, Energy-Efficient Inference Framework for Video Object Detection on the Edge"
+authors:
+  - family-names: Taherin
+    given-names: Amir
+repository-code: "https://github.com/amirtaherin/albireo"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Albireo: Adaptive, Energy-Efficient Inference Framework for Video Object Detection on the Edge"
+  authors:
+    - family-names: Taherin
+      given-names: Amir
+    - family-names: Cano
+      given-names: "José"
+    - family-names: Ren
+      given-names: Bin
+    - family-names: Wang
+      given-names: Yanzhi
+    - family-names: Kaeli
+      given-names: David
+  collection-title: "ACM/IEEE Symposium on Edge Computing (SEC)"
+  year: 2026
