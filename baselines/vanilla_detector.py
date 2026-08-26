@@ -16,7 +16,7 @@ Usage:
     Imported as a module by run_experiment.py. Not intended to be run directly.
 
 Notes:
-    - Returns the same result dict schema as AdaptiveTracker.step() for fair comparison
+    - Returns the same result dict schema as AdaptiveDetector.step() for fair comparison
     - ran_inference is always True
     - No state between frames
 """
@@ -28,7 +28,7 @@ warnings.filterwarnings("ignore")
 class VanillaDetector:
     """
     Simple frame-by-frame YOLO detector. Runs inference on every frame.
-    Returns the same dict schema as AdaptiveTracker.step() for direct comparison.
+    Returns the same dict schema as AdaptiveDetector.step() for direct comparison.
     """
 
     def __init__(self, frame_width: int = 1920, frame_height: int = 1080, class_filter: set = None, yolo_conf: float = 0.25):

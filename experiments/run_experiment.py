@@ -1068,7 +1068,7 @@ def main():
             van_result.update(van_tgs)
             all_results.append(van_result)
 
-        # --- Albireo adaptive tracker ---
+        # --- Albireo adaptive detector ---
         if run_adaptive:
             print("  Running Albireo adaptive detector...")
             adp_run = run_adaptive_on_sequence(
