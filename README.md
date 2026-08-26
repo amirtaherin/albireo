@@ -30,8 +30,9 @@ latency simultaneously.
 > Video Object Detection on the Edge.* Amir Taherin, José Cano, Bin Ren,
 > Yanzhi Wang, David Kaeli. ACM/IEEE Symposium on Edge Computing (SEC), 2026.
 
-> **Status**: camera-ready artifact. Full release is being finalized for the
-> conference (October 2026); interfaces may still move.
+> **Status**: camera-ready artifact, verified — a fresh clone reproduces the
+> paper corpus bit-exactly (per-clip AP@50 and skip rates) on Jetson AGX Thor.
+> Final polish lands with the conference (October 2026).
 
 ## Results at a glance
 
