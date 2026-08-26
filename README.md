@@ -1,6 +1,16 @@
-# Albireo
+# Albireo — Adaptive, Energy-Efficient Video Object Detection on the Edge
 
-**Adaptive, energy-efficient inference for video object detection on the edge.**
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Paper](https://img.shields.io/badge/paper-ACM%2FIEEE%20SEC%202026-8A2BE2)](https://acm-ieee-sec.org/2026/)
+![PyTorch](https://img.shields.io/badge/PyTorch-Edge--AI-orange)
+![Orin](https://img.shields.io/badge/NVIDIA-AGX%20Orin-brightgreen)
+![Thor](https://img.shields.io/badge/NVIDIA-AGX%20Thor-yellow)
+![Detection](https://img.shields.io/badge/Video-Object%20Detection-blue)
+
+Albireo is named after a visually contrasting binary star system: the
+brighter component stands for full detector inference, the dimmer
+companion for lightweight Kalman prediction — the two execution modes the
+system alternates between.
 
 Albireo is a detector-agnostic, codec-free frame-skipping system: it wraps an
 off-the-shelf object detector and decides, per frame, whether detector
@@ -22,6 +32,24 @@ latency simultaneously.
 
 > **Status**: camera-ready artifact. Full release is being finalized for the
 > conference (October 2026); interfaces may still move.
+
+## Results at a glance
+
+At the default operating point (star, `u=3e-4`), Albireo's threshold sweep
+forms the upper AP@50–EDP Pareto frontier over the evaluated frame-skipping
+baselines, and the default point improves accuracy, energy, and latency
+simultaneously over per-frame inference:
+
+<p align="center">
+  <img src="docs/assets/pareto_edp_ap50.png" width="85%" alt="AP@50 vs per-frame EDP Pareto frontier (YOLO26x, BDD100K MOT)">
+</p>
+
+Energy savings hold across three detector architectures and both Jetson
+generations while AP@50 stays within ±1.2 pp of per-frame inference:
+
+<p align="center">
+  <img src="docs/assets/energy_savings.png" width="70%" alt="Energy savings across detectors and platforms">
+</p>
 
 ## Repository layout
 
