@@ -91,7 +91,7 @@ _ROOT = pathlib.Path(__file__).resolve().parent.parent
 for _sub in ("experiments", "baselines", "telemetry"):
     sys.path.insert(0, str(_ROOT / _sub))
 sys.path.insert(0, str(_ROOT))
-from albireo.detector import AdaptiveTracker, Track
+from albireo.detector import AdaptiveDetector, Track
 from bdd_loader import BDDDataset, BDD_TO_COCO, DEFAULT_EVAL_CLASSES
 # virat_loader is imported lazily in main() only when --dataset virat is selected,
 # to avoid requiring opencv-python for BDD-only runs.
@@ -150,9 +150,9 @@ def run_vanilla_on_sequence(seq, model, device, yolo_conf=0.25,
     }
 
 
-def run_adaptive_on_sequence(seq, model, device, args, AdaptiveTracker, Track,
+def run_adaptive_on_sequence(seq, model, device, args, AdaptiveDetector, Track,
                              tegrastats_log=None):
-    """Run adaptive tracker on a BDD sequence. Returns per-frame detections and timing."""
+    """Run the Albireo adaptive detector on a BDD sequence. Returns per-frame detections and timing."""
     import inspect
     Track.reset_id_counter()
     _all_kwargs = dict(
@@ -168,8 +168,8 @@ def run_adaptive_on_sequence(seq, model, device, args, AdaptiveTracker, Track,
         rescue_conf=args.rescue_conf,
         max_rescue=args.max_rescue,
     )
-    _valid = set(inspect.signature(AdaptiveTracker.__init__).parameters) - {"self"}
-    tracker = AdaptiveTracker(**{k: v for k, v in _all_kwargs.items() if k in _valid})
+    _valid = set(inspect.signature(AdaptiveDetector.__init__).parameters) - {"self"}
+    tracker = AdaptiveDetector(**{k: v for k, v in _all_kwargs.items() if k in _valid})
 
     tgs = ClipTegrastats(log_path=tegrastats_log)
     per_frame_dets = []
@@ -1070,9 +1070,9 @@ def main():
 
         # --- Albireo adaptive tracker ---
         if run_adaptive:
-            print("  Running Albireo adaptive tracker...")
+            print("  Running Albireo adaptive detector...")
             adp_run = run_adaptive_on_sequence(
-                seq, model, device, args, AdaptiveTracker, Track,
+                seq, model, device, args, AdaptiveDetector, Track,
                 tegrastats_log=tgs_dir / f"{video_name}_adaptive.log")
             adp_eval = evaluate_sequence(seq, adp_run["per_frame_dets"])
             adp_metrics = collect_metrics(adp_eval)

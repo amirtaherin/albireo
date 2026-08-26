@@ -1,7 +1,7 @@
 """
 Script Name: rfdetr_wrapper.py
 Description: Wraps RF-DETR to expose the same interface as Ultralytics YOLO,
-             so the adaptive tracker and vanilla detector can use it without
+             so the Albireo adaptive detector and vanilla baseline can use it without
              code changes.
 
              Key differences handled:

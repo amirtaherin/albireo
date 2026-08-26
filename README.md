@@ -55,7 +55,7 @@ generations while AP@50 stays within ±1.2 pp of per-frame inference:
 
 | Path | Contents |
 |---|---|
-| `albireo/` | The system: adaptive tracker (`AdaptiveTracker`), tuned defaults |
+| `albireo/` | The system: adaptive detector (`AdaptiveDetector`), tuned defaults |
 | `baselines/` | Vanilla, FixedSkip-N, CTD, Statues, ERD-only reimplementations |
 | `telemetry/` | Jetson tegrastats capture + parsers, per-clip power monitor |
 | `experiments/` | BDD100K evaluation runner, Jetson sweep scripts, power-mode runs |

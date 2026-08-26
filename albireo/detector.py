@@ -1,5 +1,5 @@
 """
-Albireo adaptive tracker: the core frame-skipping system.
+Albireo adaptive detector: the core frame-skipping system.
 
 Wraps an off-the-shelf object detector and decides, per frame, whether
 detector invocation can be safely skipped. A 10-dimensional per-object
@@ -15,7 +15,7 @@ License: MIT
 
 Usage:
     Imported by experiments/run_experiment.py, or directly:
-        from albireo.detector import AdaptiveTracker
+        from albireo.detector import AdaptiveDetector
 """
 
 import pathlib
@@ -331,7 +331,7 @@ def _iou(box_a, box_b):
     return inter / union if union > 0 else 0.0
 
 
-class AdaptiveTracker:
+class AdaptiveDetector:
     """
     Albireo tracker: Albireo + KF-augmented inference.
 
